@@ -1,23 +1,17 @@
 package com.tarjetas.tarjetas.models;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
+
+@AllArgsConstructor
+@Getter
+@Setter
 public class Tarjeta {
 
-    String numeroTarjeta;
+    @Id
+    Integer numeroTarjeta;
     String franquicia;
-
-    public String getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
-
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
-
-    public String getFranquicia() {
-        return franquicia;
-    }
-
-    public void setFranquicia(String franquicia) {
-        this.franquicia = franquicia;
-    }
 }
