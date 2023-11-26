@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,19 +21,19 @@ public class TarjetaController {
 
     TarjetaService tarjetaService;
 
-    @PostMapping("/")
+    @PostMapping("/agregartarjeta")
     public Mono<Tarjeta> crearTarjeta(@RequestBody Tarjeta tarjeta){
         return tarjetaService.save(tarjeta);
     }
 
-    @GetMapping("/")
-    public Flux<Tarjeta> consultarTarjetas(){
-        return tarjetaService.findByAll();
+    @GetMapping("/consultarporid/{id}")
+    public Mono<Tarjeta> consultarTarjeta(@PathVariable String id){
+        return tarjetaService.findById(id);
     }
 
-    @GetMapping("/status")
-    public ResponseEntity status() {
-        Tarjeta tarjeta = new Tarjeta(10,"Mastercard");
-        return new ResponseEntity(tarjeta, HttpStatus.OK);
+    @GetMapping("/consultartodo")
+    public Flux<Tarjeta> consultarTarjetas(){
+        return tarjetaService.findAll();
     }
+
 }

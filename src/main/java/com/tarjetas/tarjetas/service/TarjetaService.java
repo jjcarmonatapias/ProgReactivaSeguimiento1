@@ -34,7 +34,7 @@ public class TarjetaService {
     }
 
 
-    public Flux<Tarjeta> findByAll(){
+    public Flux<Tarjeta> findAll(){
         return tarjetaRepository.findAll()
                 .onErrorResume(throwable -> {
                     LOGGER.error("Error al consultar todas las tarjetas" , throwable);
