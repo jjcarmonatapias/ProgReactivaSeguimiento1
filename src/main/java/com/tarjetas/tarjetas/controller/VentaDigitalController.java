@@ -1,7 +1,7 @@
 package com.tarjetas.tarjetas.controller;
 
-import com.tarjetas.tarjetas.models.Tarjeta;
-import com.tarjetas.tarjetas.service.TarjetaService;
+import com.tarjetas.tarjetas.models.VentaDigital;
+import com.tarjetas.tarjetas.service.VentaDigitalService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,25 +13,24 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/tarjetas")
+@RequestMapping("/ventadigital")
 @AllArgsConstructor
-public class TarjetaController {
+public class VentaDigitalController {
 
-    TarjetaService tarjetaService;
+    VentaDigitalService ventaDigitalService;
 
-    @PostMapping("/agregartarjeta")
-    public Mono<Tarjeta> crearTarjeta(@RequestBody Tarjeta tarjeta){
-        return tarjetaService.save(tarjeta);
+    @PostMapping("/agregarventadigital")
+    public Mono<VentaDigital> crearVentaDigital(@RequestBody VentaDigital ventaDigital){
+        return ventaDigitalService.save(ventaDigital);
     }
 
     @GetMapping("/consultarporid/{id}")
-    public Mono<Tarjeta> consultarTarjeta(@PathVariable String id){
-        return tarjetaService.findById(id);
+    public Mono<VentaDigital> consultarVentaDigital(@PathVariable String id){
+        return ventaDigitalService.findById(id);
     }
 
     @GetMapping("/consultartodo")
-    public Flux<Tarjeta> consultarTarjetas(){
-        return tarjetaService.findAll();
+    public Flux<VentaDigital> consultarVentasDigitales(){
+        return ventaDigitalService.findAll();
     }
-
 }
