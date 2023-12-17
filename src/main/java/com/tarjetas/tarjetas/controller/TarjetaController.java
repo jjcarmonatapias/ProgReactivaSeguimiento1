@@ -34,4 +34,9 @@ public class TarjetaController {
         return tarjetaService.findAll();
     }
 
+    @GetMapping("/eliminarporid/{id}")
+    public Mono<Void> eliminarTarjeta(@PathVariable String id){
+        return tarjetaService.deleteById(id);
+    }
+
 }

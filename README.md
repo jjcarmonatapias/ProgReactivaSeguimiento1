@@ -5,7 +5,14 @@ Este repo es creado para implementar la tarea del seguimiento 1 del curso de pro
 
 Descripcion: API para la venta y uso de tarjetas de Credito
 
-Dominio:
+Dominio con el CRUD completo: class Tarjeta
+
+Link actuator:
+
+http://localhost:6090/actuator
+
+
+Modelo:
 
 class Tarjeta
 
@@ -30,11 +37,13 @@ Consultar por un id (GET): http://localhost:6090/tarjetas/consultarporid/1
 
 Consultar todas las tarjetas (GET): http://localhost:6090/tarjetas/consultartodo
 
+Consultar todas las tarjetas (GET): http://localhost:6090/tarjetas/eliminarporid/1
+
 
 
 --------------------------------------------------------
 
-Dominio:
+Modelo:
 
 class VentaDigital
 
@@ -46,7 +55,7 @@ class VentaDigital
 
 edpoints:
 
-Agregar una tarjeta(POST): http://localhost:6090/ventadigital/agregarventadigital
+Agregar una VentaDigital(POST): http://localhost:6090/ventadigital/agregarventadigital
 
 Ejemplo:
 
@@ -58,3 +67,63 @@ Ejemplo:
 Consultar por un id (GET): http://localhost:6090/ventadigital/consultarporid/1
 
 Consultar todas las tarjetas (GET): http://localhost:6090/ventadigital/consultartodo
+
+------------------------------
+
+Modelo:
+
+class Cuenta
+
+   @Id
+    Integer id;
+    String numero;
+    String tipo;
+    String descripcion;
+	
+
+edpoints:
+
+Agregar una cuenta(POST): http://localhost:6090/cuenta/agregarcuenta
+
+Ejemplo:
+
+{
+    "numero": "1020",
+	"tipo": "Ahorros",
+    "descripcion": "cuenta de ahorros"
+}
+
+Consultar por un id (GET): http://localhost:6090/cuenta/consultarporid/1
+
+Consultar todas las tarjetas (GET): http://localhost:6090/cuenta/consultartodo
+
+-------------------------------------------
+
+Modelo:
+
+class Tarjetahabiente
+
+    @Id
+    Integer id;
+    String documento;
+    String tipodocumento;
+    String nombre;
+    String descripcion;
+	
+
+edpoints:
+
+Agregar una Tarjetahabiente(POST): http://localhost:6090/tarjetahabiente/agregartarjetahabiente
+
+Ejemplo:
+
+{
+    "documento": "1020",
+	"tipodocumento": "cedula",
+	"nombre": "John",
+    "descripcion": "cliente preferencial"
+}
+
+Consultar por un id (GET): http://localhost:6090/tarjetahabiente/consultarporid/1
+
+Consultar todas las tarjetas (GET): http://localhost:6090/tarjetahabiente/consultartodo

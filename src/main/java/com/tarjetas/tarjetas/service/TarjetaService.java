@@ -44,6 +44,14 @@ public class TarjetaService {
                         "Ninguna tarjetas encontrada").getMostSpecificCause()));
     }
 
+    public Mono<Void> deleteById(String id){
+        return tarjetaRepository.deleteById(id)
+                .onErrorResume(throwable -> {
+                    LOGGER.error("Error al eliminar una tarjeta con id = " + id, throwable);
+                    return Mono.empty();
+                });
+    }
+
 
 
 }
