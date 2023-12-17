@@ -13,3 +13,12 @@ VENTA_DIGITAL(
     descripcion VARCHAR2(60),
     PRIMARY KEY (solicitud)
 );
+
+CREATE TABLE IF NOT EXISTS
+CUENTA(
+    id INT NOT NULL AUTO_INCREMENT,
+    numero VARCHAR2(20),
+    tipo VARCHAR2(60),
+    descripcion VARCHAR2(60),
+    PRIMARY KEY (id)
+);
